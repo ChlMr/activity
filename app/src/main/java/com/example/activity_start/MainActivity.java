@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btn1;
     private Button btn2;
     private Button btn3;
+    private Button btn4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +50,21 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent();
                 intent.setClass(MainActivity.this,SecondActivity.class);
                 startActivity(intent);
+
+            }
+        });
+
+        btn4 = (Button) findViewById(R.id.btn4);
+        btn4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setAction("com.example");
+                intent.addCategory("android.intent.category.DEFAULT");
+                if(intent.resolveActivity(getPackageManager())!= null)
+                {
+                    startActivity(intent);
+                }
 
             }
         });
